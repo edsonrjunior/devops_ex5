@@ -20,8 +20,9 @@ node {
 
     stage('Deploy do container via ansible-playbook') {
 
-        sh '/usr/local/bin/ansible-playbook playbook.yml'
+        sh '/home/ubuntu/ansible-playbook playbook.yml'
+        //sh '/usr/local/bin/ansible-playbook playbook.yml'
+        
         sh 'whoami'
-
     }
 }
