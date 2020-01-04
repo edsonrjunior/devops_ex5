@@ -13,17 +13,13 @@ node {
 
     stage('Push da imagem para o Dockerhub') {
 
-        docker.withRegistry('https://registry.hub.docker.com', 'credenciais-dockerhub') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
             app.push("latest")
-
         }
     }
 
     stage('Deploy do container via ansible-playbook') {
 
-        //ansiblePlaybook(
-        //    playbook: 'playbook.yml'
-        //)
         sh '/usr/local/bin/ansible-playbook playbook.yml'
         sh 'whoami'
 
