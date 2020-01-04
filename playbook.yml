@@ -1,0 +1,13 @@
+- hosts: localhost
+
+  tasks:
+   - name: Realizar pull da imagem do dockerhub
+     docker_image:
+      name: edsonrjunior/devops_ex5:latest
+
+   - name: Iniciar aplicacao
+     docker_container:
+      name: devops_ex5
+      image: edsonrjunior/devops_ex5:latest
+      ports:
+       - "5000:5000"
